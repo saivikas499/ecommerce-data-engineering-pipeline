@@ -1,0 +1,9 @@
+.venv/
+airflow_project/logs/
+airflow_project/.env
+dbt_ecommerce/target/
+dbt_ecommerce/logs/
+profiles.yml
+*.pyc
+__pycache__/
+.ipynb_checkpoints/
