@@ -8,20 +8,9 @@ from airflow.providers.standard.operators.bash import BashOperator
 from airflow.providers.smtp.notifications.smtp import send_smtp_notification
 
 
-default_args = {
-    "owner": "airflow",
-    "email": [os.environ["ALERT_EMAIL"]],
-    "email_on_failure": True,
-    "email_on_retry": False,
-    "retries": 0,
-    "retry_delay": timedelta(minutes=1),
-}
 
-email_alert = send_smtp_notification(
-    smtp_conn_id="smtp_default",
-    from_email=os.environ["ALERT_EMAIL"],
-    to=os.environ["ALERT_EMAIL"],
-    subject="[ALERT] E-commerce Order Monitoring Failed",
+
+
     
 email_alert = send_smtp_notification(
     smtp_conn_id="smtp_default",
@@ -110,8 +99,12 @@ email_alert = send_smtp_notification(
     </html>
     """,
 )
-,
-)
+
+default_args = {
+    "owner": "airflow",
+    "retries": 0,
+    "retry_delay": timedelta(minutes=1),
+}
 
 with DAG(
     dag_id="order_monitoring_dag",
