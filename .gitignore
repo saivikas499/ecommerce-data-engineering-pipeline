@@ -1,9 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
 .venv/
+venv/
+airflow_venv/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Airflow generated files
 airflow_project/logs/
-airflow_project/.env
+airflow_project/.env.save/
+
+# dbt generated files
 dbt_ecommerce/target/
 dbt_ecommerce/logs/
-profiles.yml
-*.pyc
-__pycache__/
+dbt_ecommerce/dbt_packages/
+
+# Jupyter
 .ipynb_checkpoints/
+
+# IDE and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local Airflow configuration
+airflow_project/config/airflow.cfg
+
+# Local dbt user configuration
+airflow_project/config/dbt/.user.yml
+
+# Local Snowflake configuration
+airflow_project/dags/utils/config/snowflake_config.yaml
